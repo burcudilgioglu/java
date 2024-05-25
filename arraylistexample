@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random rand = new Random();
+
+        // Step 1: Prompt the user to enter a specific number
+        System.out.print("Enter a number to search for: ");
+        int searchNumber = scanner.nextInt();
+
+        // Step 2: Generate 100 random integers between 1 and 100 and add them to an ArrayList
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            int randomNumber = rand.nextInt(100) + 1;
+            numbers.add(randomNumber);
+        }
+
+        // Step 3: Print the ArrayList
+        System.out.println("ArrayList with 100 random integer numbers between 1-100:");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+
+        // Step 4: Sort the ArrayList
+        Collections.sort(numbers);
+        System.out.println("Sorted ArrayList:");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+
+        // Step 5: Count the occurrences of the specific number
+        int countSpecificNumber = 0;
+        int countOddNumbers = 0;
+        int countEvenNumbers = 0;
+
+        for (int number : numbers) {
+            if (number == searchNumber) {
+                countSpecificNumber++;
+            }
+            if (number % 2 == 0) {
+                countEvenNumbers++;
+            } else {
+                countOddNumbers++;
+            }
+        }
+
+        // Step 7: Print the results
+        System.out.println("The number (" + searchNumber + ") occurred " + countSpecificNumber + " times in your ArrayList.");
+        System.out.println("Number of odd numbers: " + countOddNumbers);
+        System.out.println("Number of even numbers: " + countEvenNumbers);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
