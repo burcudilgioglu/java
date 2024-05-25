@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a List to store integer values
+        List<Integer> numbers = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        // Get 5 values from the user and add them to the List
+        System.out.println("Enter 5 integer values:");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Value " + (i + 1) + ": ");
+            int value = scanner.nextInt();
+            numbers.add(value);
+        }
+
+        // Display the List
+        System.out.println("List of values: " + numbers);
+
+        // Call the method to add List to HashSet and get the HashSet
+        Set<Integer> hashSet = addListToHashSet(numbers);
+
+        // Display the HashSet
+        System.out.println("HashSet of values: " + hashSet);
+    }
+
+    // Method to add elements of a List to a HashSet
+    public static Set<Integer> addListToHashSet(List<Integer> list) {
+        Set<Integer> set = new HashSet<>();
+        for (int element : list) {
+            set.add(element);
+        }
+        return set;
+    }
+}
