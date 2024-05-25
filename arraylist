@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an ArrayList to store integer values
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        // Create a Random object to generate random numbers
+        Random rand = new Random();
+
+        // Add 10 random integers between 10 and 100 to the ArrayList
+        for (int i = 0; i < 10; i++) {
+            int randomNumber = rand.nextInt(91) + 10; // Generates a random number between 10 and 100
+            numbers.add(randomNumber);
+        }
+
+        // Sum the elements of the ArrayList
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+
+        // Calculate the average
+        double average = (double) sum / numbers.size();
+
+        // Display the sum and the average
+        System.out.println("Sum of the elements: " + sum);
+        System.out.println("Average of the elements: " + average);
+    }
+}
